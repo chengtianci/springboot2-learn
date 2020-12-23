@@ -9,6 +9,10 @@ package com.chengtc.boot.bean;
 public class User {
     private String name;
     private Integer age;
+    private Pet pet;
+
+    public User() {
+    }
 
     public User(String name, Integer age) {
         this.name = name;
@@ -31,11 +35,20 @@ public class User {
         this.age = age;
     }
 
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", pet=" + pet +
                 '}';
     }
 }

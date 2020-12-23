@@ -1,15 +1,35 @@
+# Springboot2 learn
+
+## 学习springboot2 记录资料使用的仓库
+
+[B站地址：https://www.bilibili.com/video/BV19K4y1L7MT?p=1](https://www.bilibili.com/video/BV19K4y1L7MT?p=7)
+
+2020年12月23日10:17:03
+
+p9
+
+- @Conditional
+- 
+
+p8
+
+- @Import
+- 
+
+学习p7
+
+- 主要解决理解@Configuration和@Bean （容器中注册组件以及组件的注册规则等）
+- springboot2的Lite模式和Full模式 
+- lite模式主要解决组件之间的依赖问题，并且lite模式加载速度快于full（因为依赖冲突的先后顺序解决了）
+- @Compoment @Controller @Service @Repository
+
+```java
 package com.chengtc.boot.config;
 
-import ch.qos.logback.core.db.DBHelper;
-import com.chengtc.boot.bean.Car;
 import com.chengtc.boot.bean.Pet;
 import com.chengtc.boot.bean.User;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 /**
  * @name: Myconfig
@@ -25,27 +45,14 @@ import org.springframework.context.annotation.Import;
  *     Full ： @Configuration(proxyBeanMethods = true)
  *     Lite ： @Configuration(proxyBeanMethods = false)
  *     解决组建依赖
- *
- *  4. @Import({User.class, DBHelper.class}) '
- *      给容器中自动创建出这些组件bean实例   默认组件的名字是全类名 com.chengtc.boot.bean.User  ch.qos.logback.core.db.DBHelper
  */
-@Import({User.class, DBHelper.class})
-@Configuration(proxyBeanMethods = true) //告诉springboot这还少一个配置类  == 配置文件  ， 配置类本身也是一个组件
-//@ConditionalOnBean
-@ConditionalOnMissingBean(name = "tomNewName")
-/**
- *   1-开启car的属性配置绑定功能。（car类上不需要@Compoment)
- *   2-把car组件自动注测到容器中
- *   3-引用第三方包的时候
- */
-@EnableConfigurationProperties(Car.class)
+@Configuration(proxyBeanMethods = false) //告诉springboot这还少一个配置类  == 配置文件  ， 配置类本身也是一个组件
 public class Myconfig {
 
     /**
-     * FULL 外部只能获取到单实例对象
+     * 外部只能获取到单实例对象
      * @return
      */
-    @ConditionalOnBean(name = "tomNewName")
     @Bean //给容器中添加组件，以方法名作为组建的id，返回类型就是组件类型，返回的值就是组件在容器中的实例
     public User user01(){
         User zhangsan = new User("zhangsan",18);
@@ -59,3 +66,11 @@ public class Myconfig {
         return new Pet("tomcat");
     }
 }
+
+```
+
+
+
+2020年12月22日10:16:35
+
+学习p1-p6
