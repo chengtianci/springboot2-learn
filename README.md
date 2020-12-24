@@ -4,19 +4,17 @@
 
 [B站地址：https://www.bilibili.com/video/BV19K4y1L7MT?p=1](https://www.bilibili.com/video/BV19K4y1L7MT?p=7)
 
+2020年12月24日09:58:31
+
+P10-p15
+
 2020年12月23日10:17:03
 
 p9
 
-- @Conditional
-- 
-
 p8
 
-- @Import
-- 
-
-学习p7
+p7
 
 - 主要解决理解@Configuration和@Bean （容器中注册组件以及组件的注册规则等）
 - springboot2的Lite模式和Full模式 

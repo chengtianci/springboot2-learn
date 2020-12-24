@@ -971,13 +971,13 @@ org.springframework.boot.autoconfigure.webservices.client.WebServiceTemplateAuto
             // Detect if the user has created a MultipartResolver but named it incorrectly
             return resolver;
         }
-给容器中加入了文件上传解析器；
+// 给容器中加入了文件上传解析器；
 ```
 
 SpringBoot默认会在底层配好所有的组件。但是如果用户自己配置了以用户的优先
 
 ```java
-@Bean
+		@Bean
     @ConditionalOnMissingBean
     public CharacterEncodingFilter characterEncodingFilter() {
     }
@@ -1008,25 +1008,25 @@ SpringBoot默认会在底层配好所有的组件。但是如果用户自己配�
 
 - ###### 引入场景依赖
 
-- - https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter
+	- https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-starter
 
 - ###### 查看自动配置了哪些（选做）
 
-- - 自己分析，引入场景对应的自动配置一般都生效了
+	- 自己分析，引入场景对应的自动配置一般都生效了
   - 配置文件中debug=true开启自动配置报告。Negative（不生效）\Positive（生效）
 
 - ###### 是否需要修改
 
-- - 参照文档修改配置项
+	- 参照文档修改配置项
 
-- - - https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties
+		- https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html#common-application-properties
     - 自己分析。xxxxProperties绑定了配置文件的哪些。
 
-- - 自定义加入或者替换组件
+	- 自定义加入或者替换组件
 
-- - - @Bean、@Component。。。
+		- @Bean、@Component。。。
 
-- - 自定义器  **XXXXXCustomizer**；
+	- 自定义器  **XXXXXCustomizer**；
   - ......
 
 
